@@ -10,11 +10,34 @@ class MainPage extends React.Component {
       incorrectGuess: false,
       score: 0,
       topScore: 0,
-      array: [1,2,3,4,5,6]
+      array: [
+        {id: 1, color: "red", source:"https://www.rover.com/blog/wp-content/uploads/2018/11/running-corgi-puppy-1200x675.jpg"},
+        {id: 2, color: "blue"},
+        {id: 3, color: "yellow"}
+      ],
+      alreadyClickedIDs: []
   };
 
   updateScore = ()=> {
-      this.setState({score: this.state.score + 1})
+    //var newTopScore = 2 + 2 === 100 ? "first thing" : "second thing"
+    var newTopScore = this.state.score + 1 > this.state.topScore ? this.state.topScore + 1 : this.state.topScore;
+    //var newTopScore = this.state.score === this.state.topScore ? this.state.topScore + 1 : this.state.topScore;
+      this.setState({score: this.state.score + 1, topScore: newTopScore})
+
+  }
+
+  guess = (event)=>{
+     const {id} = event.target;
+    //const id = event.target.id;
+     console.log(id)
+    if(this.state.alreadyClickedIDs.includes(id)){
+      this.setState({score:0, alreadyClickedIDs:[]})
+      //reshuffle
+    } else {
+      this.updateScore();
+      this.setState({alreadyClickedIDs:[...this.state.alreadyClickedIDs, id]})
+      //reshuffle
+    }
   }
 
 
@@ -25,7 +48,9 @@ class MainPage extends React.Component {
         <ScoreBoard guess="wrong" score={this.state.score} topScore={this.state.topScore}></ScoreBoard>
         <h1>We did it!</h1>
         <button onClick={this.updateScore}>CLICK HERE</button>
-        {this.state.array.map((item)=><Image onClick ={this.updateScore} key={item}></Image>)}
+        <button onClick={this.guess}>ACTUAL BUTTON</button>
+        <button onClick={()=>this.updateScore(4)}>CLICK HERE ALSO</button>
+        {this.state.array.map((item)=><Image onClick ={this.guess} key={item.id} id={item.id} color={item.color} source={item.source}></Image>)}
       </div>
     );
   }
