@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "color": "red",
+      "className": "picture",
+      "source":
+        "https://www.rover.com/blog/wp-content/uploads/2018/11/running-corgi-puppy-1200x675.jpg"
+    },
+    {
+      "id": 2,
+      "color": "blue",
+      "className": "picture",
+      "source":
+        "https://www.rover.com/blog/wp-content/uploads/2017/06/corgi-flowers-960x540.jpg"
+    },
+    {
+      "id": 3,
+      "color": "yellow",
+      "className": "picture",
+      "source":
+        "https://www.thesprucepets.com/thmb/3dF7d-nxYqKk2zs5X0HFLn8ki3w=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/40926432_560505141051912_3896594467564281999_n-5ba052bac9e77c0050e669bb.jpg"
+    }
+  ]

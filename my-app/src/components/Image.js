@@ -3,9 +3,9 @@ import React from "react";
 function Image(props) {
 
   return (
-    <div className="blue" {...props}>
-      <img src={props.source}></img>
-      
+    <div  >
+      <img src={props.source} {...props} className="blue"></img>
+      {/* <img src={props.source} id={props.id} color={props.color} className="blue"></img> */}
     </div>
   );
 }
